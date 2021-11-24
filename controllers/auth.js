@@ -25,7 +25,7 @@ exports.register = asyncHandler(async (req, res, next) => {
 })
 
 //@desc     Login User
-//@route    GET /api/v1/auth/register
+//@route    GET /api/v1/auth/login
 //@access   Public
 exports.login = asyncHandler(async (req, res, next) => {
 
@@ -59,7 +59,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     const token = user.getSignedJwtToken()
 
     const options = {
-        expires: new Date(Date.now() + process.env.JWT_COOKE_EXPIRE * 24 * 60 * 60 * 1000),
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
         httpOnly: true,
     }
     if (process.env.NODE_ENV === 'production') {
@@ -94,8 +94,6 @@ exports.logout = asyncHandler(async (req, res, next) => {
 
 exports.getMe = asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id)
-
-
     res.status(200).json({
         success: true,
         data: user

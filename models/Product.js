@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 const slugify = require('slugify')
 const ProductSchema = new mongoose.Schema({
+    lRef: { type: String, required: true },
+    vRef: { type: String, required: true },
+    type: { type: String, enum: ['alarme', 'video'], default: 'alarme' },
     name: {
         type: String,
         required: [true, 'Please add name'],
