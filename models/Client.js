@@ -15,6 +15,15 @@ const ClientSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please add contact number']
     },
+    email: {
+        type: String
+    },
+    interlocuteur: {
+        type: String
+    },
+    address: {
+        type: String
+    },
     nif: {
         type: String
     },
