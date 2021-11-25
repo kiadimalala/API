@@ -32,7 +32,7 @@ connectDB()
 //Route files
 
 const products = require('./routes/products')
-
+const clients = require('./routes/clients')
 const auth = require('./routes/auth')
 const users = require('./routes/users')
 
@@ -81,9 +81,10 @@ app.use(function (req, res, next) {
 });
 
 //Mount routers
-app.use('/api/v1/products', products)
 app.use('/api/v1/auth', auth)
 app.use('/api/v1/users', users)
+app.use('/api/v1/products', products)
+app.use('/api/v1/clients', clients)
 
 
 //Middleware

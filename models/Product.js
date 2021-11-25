@@ -24,6 +24,8 @@ ProductSchema.pre('save', function (next) {
     this.slug = slugify(this.name, {
         lower: true
     })
+    this.lRef = `LORI${this.lRef}`
+    this.vRef = `AIRI${this.vRef}`
     next()
 })
 
