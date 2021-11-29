@@ -30,7 +30,7 @@ dotenv.config({ path: './config/config.env' })
 connectDB()
 
 //Route files
-
+const quotations = require('./routes/quotations')
 const products = require('./routes/products')
 const clients = require('./routes/clients')
 const auth = require('./routes/auth')
@@ -85,6 +85,7 @@ app.use('/api/v1/auth', auth)
 app.use('/api/v1/users', users)
 app.use('/api/v1/products', products)
 app.use('/api/v1/clients', clients)
+app.use('/api/v1/quotations', quotations)
 
 
 //Middleware
